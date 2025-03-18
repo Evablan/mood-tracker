@@ -1,0 +1,46 @@
+Para organizar la web, hay que pensar en qué podrá hacer un usuario dentro de la plataforma. Algunas funciones clave podrían ser:
+
+✅ Registro e inicio de sesión → Para que cada usuario tenga su propio historial.
+✅ Registrar estado de ánimo → Un formulario donde el usuario elige su estado y puede agregar notas.
+✅ Historial de estados de ánimo → Una página donde el usuario puede ver sus estados anteriores.
+✅ Editar o eliminar registros → Permitir modificaciones en los estados guardados.
+✅ Panel de usuario (Dashboard) → Un resumen con estadísticas o gráficos sobre cómo ha cambiado su estado de ánimo con el tiempo.
+✅ Modo oscuro/claro (opcional) → Para mejorar la experiencia del usuario.
+
+📌 Estructura general del sitio
+Ahora pensemos en cómo se verá y cómo navegará el usuario:
+
+📌 1. Página de inicio (index.php)
+
+Breve explicación de la app.
+Botones de registrarse / iniciar sesión.
+Quizás una demo de cómo funciona.
+📌 2. Dashboard (dashboard.php)
+
+Acceso a su historial de estados de ánimo.
+Posibilidad de registrar un nuevo estado.
+Estadísticas generales.
+📌 3. Historial (moods/listar.php)
+
+Lista de estados de ánimo pasados.
+Opción de filtrar por fecha.
+📌 4. Página de registro (auth/registro.php)
+
+Formulario para nuevos usuarios.
+📌 5. Página de login (auth/login.php)
+
+Formulario para acceder a la cuenta.
+📌 Diseño de la barra de navegación
+La barra de navegación (header) debería cambiar dependiendo de si el usuario ha iniciado sesión:
+
+🔹 Usuario NO autenticado verá:
+
+"Inicio"
+"Iniciar sesión"
+"Registrarse"
+🔹 Usuario autenticado verá:
+
+"Dashboard"
+"Registrar estado"
+"Historial"
+"Cerrar sesión"
