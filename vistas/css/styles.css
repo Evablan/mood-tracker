@@ -1,105 +1,107 @@
-/* -------- TODO SOBRE EL BODY ---------*/
-/*📌 Esto evita espacios inesperados y hace que width y height incluyan padding y border.*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*Personalizar el campo de búsqueda */
+.navbar .form-control {
+    width: 250px;
+    /* Hacerlo más grande */
+    border-radius: 20px;
+    /*Bordes redondos */
+    border: 2px solid #4CAF50;
 }
 
-/*2️⃣ Definir la tipografía y color de texto  */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /*Definimos la tipografía*/
-    color: #333;
-    /*Color oscurso suave para el texto*/
-    background-color: #f4f4f4;
-    /*Fondo claro */
-    line-height: 1.6;
-    /*Espaciado entre líneas */
+/* Personalizar el botón de búsqueda */
+.navbar .btn-buscar {
+    background-color: #4CAF50;
+    /* Fondo verde */
+    color: white;
+    /* Texto en blanco */
+    border-radius: 20px;
+    /* Bordes redondeados */
+    padding: 5px 15px;
+    /* Espaciado interno */
+    border: none;
+    /* Sin borde */
+    transition: 0.3s;
+    /* Animación al pasar el ratón */
 }
 
-/*3️⃣ Definir el tamaño y estructura de la página
-nos aseguramos de que el body ocupe toda la pantalla*/
-html,
-body {
-    height: 100%;
-    width: 100%;
+/* Efecto al pasar el ratón */
+.navbar .btn-buscar:hover {
+    background-color: #388E3C;
+    /* Verde más oscuro */
 }
 
-/*Usamos display: flex; para centrar el contenido */
-body {
-    display: flex;
-    justify-content: center;
-    /*Centrar horizontalmente */
-    align-items: center;
-    /*Centrar verticalmente*/
-    min-height: 100vh;
-    /*Al menos la altura de la pantalla*/
-}
-
-/* Dark Mode o esquema de colores dinámico*/
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-.dark-mode {
-    --bg-color: #121212;
-    --text-color: #fff;
-}
-
-/* Estilos a h1 span */
-
-h1 span {
-    display: block;
-}
-
-h1 span {
-    color: pink;
-}
-
-/* ------ BARRA DE NAVEGACIÓN <nav> ---------*/
-nav {
-    position: fixed;
-    /* Fija el menú en la parte superior */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    /* Fondo con transparencia */
-    padding: 15px 0;
-    text-align: center;
-    z-index: 1000;
-    /* Asegura que esté por encima del contenido */
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    /* Centra los elementos horizontalmente */
-    gap: 20px;
-    /* Espaciado entre los enlaces */
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    text-decoration: none;
+/*Personalizando el botón de inicio de sesión y el de regístrate*/
+.nav-ustom {
     font-size: 16px;
-    font-weight: bold;
-    color: #5D5D5D;
-    padding: 5px 10px;
+    /*Tamaño del texto */
+    color: white !important;
+    /*Aseguramos que el color sea blanco*/
+    display: flex;
+    align-items: center;
+    /*Alinear icono y texto*/
 }
 
-nav ul li a:hover {
-    color: orangered;
-}
-
-nav ul li i {
+/*Ajuste para los iconoes*/
+.nav-custom i {
+    font-size: 18px;
+    /**Hacer los iconos más grandes*/
     margin-right: 5px;
+    /*Espacio entre icono y texto */
+    color: #f8f9fa;
+    /*Color blanco */
 }
+
+/*Así las fuentes se cargaran en todas las páginas */
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*📌 Resumen sencillo
+✅ .navbar .btn-buscar → Solo afecta a los botones dentro de la barra de navegación.
+✅ .btn-buscar → Afecta a todos los botones que tengan esa clase, sin importar dónde estén.
+✅ button → Afecta a todos los botones <button> de la página, lo que puede ser peligroso si no quieres cambiar todos./*
