@@ -1,8 +1,14 @@
+<?php
+require_once __DIR__ . '/../../config/config.php';
+
+?>
+
 <header>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <!--Logo -->
-            <a class="navbar-brand" href="" index.php>
+            <a class="navbar-brand" href="<?php echo BASE_URL . 'index.php'; ?>">
                 <i class="fa-solid fa-smile"></i> Mood Tracker
             </a>
 
@@ -17,11 +23,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!--Menú de navegación alineado a la izquierda -->
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']) . '/vistas/login.php'; ?>"><i class="fa-solid fa-key"></i> Inicio de sesión</a></li>
-                    <li class="nav-item"><a class="nav-link" href="registration.php"><i class="fas fa-pen"></i> Regístrate</a></li>
-                    <li class="nav-item"><a class="nav-link" href="listar.php"><i class="fas fa-history"></i> Historial</a></li>
-                    <li class="nav-item"><a class="nav-link" href="perfil.php"><i class="fas fa-user"></i>Perfil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ajustes.php"><i class="fas fa-cog">Ajustes</i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL . 'vistas/login.php'; ?>"><i class="fa-solid fa-key"></i> Inicio de sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL . 'vistas/registration.php'; ?>"><i class=" fas fa-pen"></i> Regístrate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL . 'vistas/listar.php'; ?>"><i class="fas fa-history"></i> Historial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL . 'vistas/perfil.php'; ?>"><i class="fas fa-user"></i>Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo BASE_URL . 'vistas/ajustes.php'; ?>"><i class="fas fa-cog">Ajustes</i></a></li>
 
                 </ul>
                 <!--Botón para buscar en la barra de navegación -->
