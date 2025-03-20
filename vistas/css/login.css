@@ -1,0 +1,38 @@
+/* Contenedor del formulario */
+.login-container {
+    background-color: #ffffff;
+    /* Fondo blanco */
+    border-radius: 10px;
+    width: 350px;
+    /* Ancho fijo */
+}
+
+/* Personalizar los inputs */
+.input-custom {
+    border: 2px solid #4CAF50;
+    /* Color de la paleta */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Botón de inicio de sesión */
+.button-inicio {
+    background-color: #4CAF50;
+    /* Verde de la paleta */
+    border: none;
+    transition: 0.3s;
+}
+
+.button-inicio:hover {
+    background-color: #388E3C;
+    /* Verde más oscuro */
+}
+
+/* Enlace de registro */
+.link-custom {
+    color: #4CAF50;
+}
+
+.link-custom:hover {
+    color: #388E3C;
+}

@@ -13,29 +13,24 @@
             </button>
 
 
-            <!-- Contenido de la barra de navegación -->
+            <!-- Contenido de la barra de navegación ("items del menú") -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!--Menú de navegación alineado a la izquierda -->
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link nav-custom" href="login.php">
-                            <i class="fa-solid fa-key"></i> Inicio de sesión
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link nav-custom" href="registration.php">
-                            <i class="fa-solid fa-right-to-bracket"></i>Regístrate
-                        </a>
-                    </li>
-                    <!--Botón para buscar en la barra de navegación -->
-                    <li class="nav item"></li>
-                    <form class="d-flex ms-3">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo dirname($_SERVER['PHP_SELF']) . '/vistas/login.php'; ?>"><i class="fa-solid fa-key"></i> Inicio de sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registration.php"><i class="fas fa-pen"></i> Regístrate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="listar.php"><i class="fas fa-history"></i> Historial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="perfil.php"><i class="fas fa-user"></i>Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ajustes.php"><i class="fas fa-cog">Ajustes</i></a></li>
 
                 </ul>
+                <!--Botón para buscar en la barra de navegación -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+
+
             </div>
         </div>
     </nav>

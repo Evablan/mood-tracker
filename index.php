@@ -20,8 +20,11 @@
 </head>
 
 <body>
+    <script src="assets/js/script.js" defer></script>
     <?php include 'vistas/includes/header.php'; ?>
     <?php include 'vistas/includes/footer.php'; ?>
+
+
 
 
 </body>

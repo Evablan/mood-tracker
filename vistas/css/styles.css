@@ -1,54 +1,55 @@
-/*Personalizar el campo de búsqueda */
+/*Personalizar el campo de búsqueda <input> usa la clase .form-control
+especificamente dentro de .navbar oara que no afecte a otro inputs en la web */
 .navbar .form-control {
-    width: 250px;
-    /* Hacerlo más grande */
-    border-radius: 20px;
-    /*Bordes redondos */
-    border: 2px solid #4CAF50;
-}
-
-/* Personalizar el botón de búsqueda */
-.navbar .btn-buscar {
-    background-color: #4CAF50;
-    /* Fondo verde */
-    color: white;
-    /* Texto en blanco */
     border-radius: 20px;
     /* Bordes redondeados */
-    padding: 5px 15px;
-    /* Espaciado interno */
-    border: none;
-    /* Sin borde */
-    transition: 0.3s;
-    /* Animación al pasar el ratón */
+    border: 2px solid #A3CEF1;
+    /* Azul Suave */
+    padding: 1px 10px;
+    width: 300px;
+    background-color: #FDFDFD;
+    /* Fondo blanco */
+    color: #333;
+    /* Texto oscuro */
+    transition: all 0.3s ease-in-out;
 }
 
-/* Efecto al pasar el ratón */
-.navbar .btn-buscar:hover {
-    background-color: #388E3C;
-    /* Verde más oscuro */
+.navbar .form-control:focus {
+    border-color: #B7E4C7;
+    /*Verde menta cuando está activo*/
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
 }
 
-/*Personalizando el botón de inicio de sesión y el de regístrate*/
-.nav-ustom {
+/*Personalizando el botón de búsqueda <button>*/
+.navbar .btn-outline-success {
+    border-radius: 20px;
+    /* Bordes redondeados */
+    border: 2px solid #A3CEF1;
+    /* Azul Suave */
+    color: #A3CEF1;
+    background-color: transparent;
+    /* Grosor del borde */
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
     font-size: 16px;
-    /*Tamaño del texto */
-    color: white !important;
-    /*Aseguramos que el color sea blanco*/
-    display: flex;
-    align-items: center;
-    /*Alinear icono y texto*/
+    /* Uniformiza el tamaño de todos los íconos */
+    color: black;
+    /* Color blanco para mantener consistencia */
+    margin-right: 5px;
 }
 
-/*Ajuste para los iconoes*/
-.nav-custom i {
-    font-size: 18px;
-    /**Hacer los iconos más grandes*/
-    margin-right: 5px;
-    /*Espacio entre icono y texto */
-    color: #f8f9fa;
-    /*Color blanco */
+.navbar .btn-outline-success:hover {
+    background-color: #A3CEF1;
+    ;
+    /* Verde en hover */
+    color: white;
 }
+
+/*En cuanto al botón: 
+✔ Efecto:
+El campo de búsqueda tiene un borde azul suave y cambia a verde menta cuando lo seleccionas.
+El botón de búsqueda es azul suave con un fondo transparente y,
+ al pasar el ratón, se vuelve azul con letras blancas.*/
 
 /*Así las fuentes se cargaran en todas las páginas */
 body {
@@ -62,6 +63,83 @@ h4,
 h5,
 h6 {
     font-family: 'Poppins', sans-serif;
+}
+
+/*Personzalizar los iconos <i> en el menú>*/
+.navbar-nav i {
+    color: #6c757d;
+    /* Color gris */
+    margin-right: 8px;
+    /* Espaciado entre icono y texto */
+    font-size: 16px;
+    /* Tamaño del icono */
+    margin-right: 5px;
+    /*Espaciado adecuado*/
+    transition: color 0.3s ease-in-out;
+}
+
+/*Al pasar el ratón sobre los enlaces del menú*/
+.navbar-nav a:hover i {
+    color: #A3CEF1;
+    /* Verde cuando pasas el ratón 
+    ✔ Esto hace que los iconos sean grises por defecto
+     y verdes cuando pasas el ratón sobre ellos.*/
+}
+
+/*📌 3. Personalizar la barra de navegación completa*/
+/* Fondo de la barra de navegación */
+.navbar {
+    background-color: #FDFDFD;
+    /* Blanco puro */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    /* Sombra suave */
+    padding: 5px 10px;
+    margin: 0px;
+}
+
+/* Enlaces del menú */
+.navbar-nav .nav-link {
+    text-transform: none;
+    font-size: 16px;
+    /* Asegura un tamaño uniforme para todos los textos */
+    color: #333;
+    /* Negro suave para buen contraste */
+    font-weight: 600;
+    /* Texto más marcado */
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Enlaces activos o en hover */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #A3CEF1;
+    /* Azul Suave */
+}
+
+/*✔ Efecto:
+La barra de navegación tiene un fondo blanco con una sombra sutil.
+Los enlaces del menú serán negro suave, pero cambiarán a azul suave al pasar el ratón.
+Se mantiene minimalista y limpio, pero con un toque motivador y moderno.*/
+
+/*📌 4. Hacer que el menú colapsable sea más elegante*/
+/* Menú desplegable en móviles */
+.navbar-collapse {
+    background-color: #FDFDFD;
+    /* Blanco */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+    /*Efecto:El menú en móvil tendrá un fondo blanco con un borde 
+    redondeado cuando se despliegue.Sombra sutil para que se vea más elegante.*/
+}
+
+/*📌 5. Agregar transición suave a la barra de navegación en scroll*/
+.navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Blanco con opacidad */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 
