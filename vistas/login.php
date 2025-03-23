@@ -39,7 +39,7 @@
                 </div>
 
 
-                <button type="submit" class="btn btn-primary button-inicio w-100">Iniciar Sesión</button>
+                <button type="submit" class="btn btn-primary button-inicio w-100" name="login">Iniciar Sesión</button>
 
                 <div class="text-center mt-3">
 
