@@ -29,7 +29,7 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
                 <label for="select-emocion">¿Cual es tu estado de ánimo?</label>
                 <br><br>
 
-                <select name="emocion" id="select-emocion" class="form-select mb-custom">
+                <select name="emocion" id="select-emocion" id="form-estado-animo" class="form-select mb-custom">
                     <option value="">Por favor, escoge la emoción que te representa hoy</option>
 
                     <option value="feliz">Feliz</option>

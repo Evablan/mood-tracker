@@ -1,0 +1,1 @@
+<!-- Interacción con la base de datos -->
