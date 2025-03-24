@@ -1,0 +1,45 @@
+/*----BOTÓN DE GUARDAR RESPUESTA----*/
+.btn-respuesta {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-respuesta:hover {
+    background-color: #388E3C;
+}
+
+/*----ESPACIADO ENTRE CAMPOS DEL FORMULARIO ----*/
+.mb-custom {
+    margin-bottom: 1.5rem;
+    /* Más suave que el predeterminado */
+}
+
+/* Título personalizado */
+.bienvenida {
+    color: #2E7D32;
+    /* Un verde más profundo y elegante */
+}
+
+/* Sombra suave a la tarjeta */
+.card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Opcional: ajustar el ancho de la tarjeta para que se vea mejor */
+.card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.frase-final {
+    color: #2E7D32;
+    /* o uno más suave de tu paleta */
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+}
