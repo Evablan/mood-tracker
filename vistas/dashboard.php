@@ -52,8 +52,7 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
                 <p class="frase-final d-block mx-auto">"Tus emociones son importantes. Gracias por compartirlas."</p>
             </div>
         </div>
-
-
+        <script src="../assets/js/emociones.js"></script>
 </body>
 
 </html>
