@@ -42,6 +42,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+//Capturar datos del formulario y preparar el FECTH() 
+const formulario = document.getElementById("form-estado-animo");
+formulario.addEventListener("submit", function (event) { //Ese event es un objeto automático que representa el evento que ocurrió (en este caso, el envío del formulario).
+    event.preventDefault(); //Impide el comportamiento por defecto del form que es recargar la pag, le está diciendo "Espera!dejamelo a mi que lo voy a enviar por JS"
+
+    //Aquí va el resto de la lógica con AJAX
+    const emocion = document.getElementById("select-emocion").value
+
+
+});
+
 
 
 
