@@ -48,7 +48,32 @@ formulario.addEventListener("submit", function (event) { //Ese event es un objet
     event.preventDefault(); //Impide el comportamiento por defecto del form que es recargar la pag, le está diciendo "Espera!dejamelo a mi que lo voy a enviar por JS"
 
     //Aquí va el resto de la lógica con AJAX
-    const emocion = document.getElementById("select-emocion").value
+    const emocion = document.getElementById("select-emocion").value;
+    const texto = document.getElementById("texto-diario").value;
+
+    //Creamos una variable para meter dentro las variables emocion y texto y enviarlas juntas al servidor para que nos lo devuelva en formato JSON
+    const datos = {
+        emocion: emocion,
+        texto: texto
+    };
+    //Vamos a enviar este objeto al backenf usando fectch()
+    fetch("../controladores/moodController.php", { //Llamamos al fetch, apuntando al archivo PHP que recibirá los datos ( en mi caso moodController)
+        method: "POST", //Enviaremos los datos a través del método POST
+        headers: {
+            "Content-Type": "application/json", //En headers Indicamos el tipo de contenido que estamos enviando, en este caso enviamos un objeto JSON
+        },
+        body: JSON.stringify(datos) //El objeto hay que convertirlo en formato JSON porque es como el servidor lo entenderá
+    })
+        .then(response => response.json()) //Convertimos la respuesta a JSON
+        .then(data => {
+            console.log(datos); //Mostramos el mensaje en la consola
+        })
+        .catch(error => {
+            console.error("Error al guardar", error);
+        });
+
+
+
 
 
 });
