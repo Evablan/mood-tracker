@@ -28,31 +28,33 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
                 <h1 class="bienvenida"> Bienvenido/a <span class="nombre-usuario"><?php echo $usuario; ?></span></h1>
                 <label for="select-emocion">¿Cual es tu estado de ánimo?</label>
                 <br><br>
+                <form id="form-estado-animo">
+                    <select name="emocion" id="select-emocion" class="form-select mb-custom">
+                        <option value="">Por favor, escoge la emoción que te representa hoy</option>
 
-                <select name="emocion" id="select-emocion" id="form-estado-animo" class="form-select mb-custom">
-                    <option value="">Por favor, escoge la emoción que te representa hoy</option>
-
-                    <option value="feliz">Feliz</option>
-                    <option value="triste">Triste</option>
-                    <option value="ansioso">Ansiosa/o</option>
-                    <option value="enfadado">Enfadada/o</option>
-                    <option value="cansado">Cansada/o</option>
-                    <option value="motivado">Motivada/o</option>
-                    <option value="neutral">Neutral</option>
-                    <option value="estresado">Estresada/o</option>
-                    <option value="esperanzado">Esperanzada/o </option>
-                    <option value="frustrado">Frustrada/o </option>
-                    <option value="agradecido">Agradecida/o </option>
-                </select>
-                <textarea class="form-control mb-custom" name="texto-diario" , id="texto-diario" , placeholder="Escribe cómo te has sentido hoy...." , rows="4"></textarea>
+                        <option value="feliz">Feliz</option>
+                        <option value="triste">Triste</option>
+                        <option value="ansioso">Ansiosa/o</option>
+                        <option value="enfadado">Enfadada/o</option>
+                        <option value="cansado">Cansada/o</option>
+                        <option value="motivado">Motivada/o</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="estresado">Estresada/o</option>
+                        <option value="esperanzado">Esperanzada/o </option>
+                        <option value="frustrado">Frustrada/o </option>
+                        <option value="agradecido">Agradecida/o </option>
+                    </select>
+                    <textarea class="form-control mb-custom" name="texto-diario" , id="texto-diario" , placeholder="Escribe cómo te has sentido hoy...." , rows="4"></textarea>
 
 
 
-                <button type="submit" class="btn btn-respuesta">Guardar respuesta</button>
-                <p class="frase-final d-block mx-auto">"Tus emociones son importantes. Gracias por compartirlas."</p>
+                    <button type="submit" class="btn btn-respuesta">Guardar respuesta</button>
+                    <p class="frase-final d-block mx-auto">"Tus emociones son importantes. Gracias por compartirlas."</p>
             </div>
         </div>
         <script src="../assets/js/emociones.js"></script>
+        </form>
 </body>
+
 
 </html>
