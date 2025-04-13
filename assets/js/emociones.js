@@ -56,29 +56,50 @@ document.addEventListener("DOMContentLoaded", function () {
             emocion: emocion,
             texto: texto
         };
-        //Vamos a enviar este objeto al backenf usando fectch()
-        fetch("../controladores/moodController.php", { //Llamamos al fetch, apuntando al archivo PHP que recibirá los datos ( en mi caso moodController)
-            method: "POST", //Enviaremos los datos a través del método POST
+
+        fetch("../controladores/moodController.php", {
+            method: "POST",
             headers: {
-                "Content-Type": "application/json", //En headers Indicamos el tipo de contenido que estamos enviando, en este caso enviamos un objeto JSON
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(datos) //El objeto hay que convertirlo en formato JSON porque es como el servidor lo entenderá
+            body: JSON.stringify(datos)
         })
-            .then(response => response.json()) //Convertimos la respuesta a JSON
+            .then(response => response.json())
             .then(data => {
-                console.log(datos); //Mostramos el mensaje en la consola
+                console.log(data);
+                const mensajeDiv = document.getElementById("mensaje-estado");
+                if (mensajeDiv && data.mensaje) {
+                    mensajeDiv.textContent = data.mensaje;
+                    mensajeDiv.style.color = "green";
+                    mensajeDiv.style.fontWeight = "bold";
+
+                    setTimeout(() => {
+                        mensajeDiv.textContent = "";
+
+                        const select = document.getElementById("select-emocion");
+                        const textarea = document.getElementById("texto-diario");
+
+                        if (select) select.value = "";
+                        if (textarea) textarea.value = "";
+
+                        if (select) select.style.backgroundColor = "#fff";
+
+
+                    }, 3000);
+
+                }
             })
+
+
             .catch(error => {
                 console.error("Error al guardar", error);
             });
 
-
-
-
-
     });
+});
 
-})
+
+
 
 
 

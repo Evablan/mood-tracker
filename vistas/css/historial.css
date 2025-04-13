@@ -1,0 +1,39 @@
+.tarjeta-emocion {
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #000;
+    max-width: 500px;
+    background-color: #f5f5f5;
+}
+
+.tarjeta-encabezado {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.tarjeta-texto {
+    font-size: 14px;
+}
+
+/* Colores por emoción */
+.emocion-feliz {
+    background-color: #FFE066;
+}
+
+.emocion-triste {
+    background-color: #A3C4F3;
+}
+
+.emocion-enfadado {
+    background-color: #FF6B6B;
+}
+
+.emocion-motivado {
+    background-color: #90EE90;
+}
+
+/* Y así para cada emoción */

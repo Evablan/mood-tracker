@@ -18,6 +18,7 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/historial.css">
 
 </head>
 
@@ -49,10 +50,15 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
 
 
                     <button type="submit" class="btn btn-respuesta">Guardar respuesta</button>
+                    <button type="button" id="btn-ver-historial" class="btn btn-respuesta">Ver historial</button>
+                    <div id="historial-container"></div>
+                    <div id="mensaje-estado" class="mt-2"></div>
                     <p class="frase-final d-block mx-auto">"Tus emociones son importantes. Gracias por compartirlas."</p>
             </div>
         </div>
         <script src="../assets/js/emociones.js"></script>
+        <script src="../assets/js/historial.js"></script>
+
         </form>
 </body>
 

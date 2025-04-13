@@ -1,19 +1,34 @@
-<!-- Interacción con la base de datos -->
 
-<!--1. Conexión a la bbdd -->
 <?php
 require_once __DIR__ . '/../config/dataBase.php';
-
-/*2. Definir una clase estadoAnimo() que será la responsable de la lógica de guardado*/
-
 class estadoAnimo
 {
     public static function guardar($usuario_id, $estado_animo, $texto_diario)
     {
-        global $pdo; //Usamos la conexión $pdo desde dataBase.php  
-        $sql = "INSERT INTO tabla estados_animo(usuario_id, estado_animo, texto_diario,fecha) VALUES (?,?,?NOW())";
+        global $pdo;
+        $sql = "INSERT INTO  estados_animo(usuario_id, estado_animo, texto_diario,fecha) VALUES (?, ?, ?, NOW())";
         $stm = $pdo->prepare($sql);
         $stm->execute([$usuario_id, $estado_animo, $texto_diario]);
+    }
+
+    public static function historial($usuario_id)
+    {
+        global $pdo;
+        $sql = "SELECT * FROM estados_animo WHERE usuario_id = ? ORDER BY fecha DESC";
+        $stm = $pdo->prepare($sql);
+        $stm->execute([$usuario_id]);
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function historialPorEstado($usuario_id, $estado_animo)
+    {
+        global $pdo;
+        $sql = "SELECT * FROM estados_animo
+         WHERE usuario_id = ? and estado_animo = ? 
+         ORDER BY fecha DESC";
+        $stm = $pdo->prepare($sql);
+        $stm->execute([$usuario_id, $estado_animo]);
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

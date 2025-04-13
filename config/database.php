@@ -1,5 +1,6 @@
-<!--Creación de la conexión a la base de datos-->
+
 <?php
+//Creación de la conexión a la base de datos
 $host = 'localhost'; //Servidor de la base de datos
 $dbname = 'mood-tracker';
 $username = 'root';
