@@ -30,6 +30,18 @@ class estadoAnimo
         $stm->execute([$usuario_id, $estado_animo]);
         return $stm->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function graficos($usuario_id)
+    {
+        global $pdo;
+        $sql = "SELECT estados_animo, COUNT(*) as total 
+        FROM estados_animo
+        WHERE usuario_id = ?
+        GROUP BY estado_animo";
+        $stm = $pdo->prepare($sql);
+        $stm->execute([$usuario_id]);
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 

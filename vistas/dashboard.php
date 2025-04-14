@@ -50,8 +50,28 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
 
 
                     <button type="submit" class="btn btn-respuesta">Guardar respuesta</button>
-                    <button type="button" id="btn-ver-historial" class="btn btn-respuesta">Ver historial</button>
+                    <select id="filtro-emocion" class="form-select">
+                        <option value="">-- Filtrar por emoción --</option>
+                        <option value="feliz">Feliz</option>
+                        <option value="triste">Triste</option>
+                        <option value="ansioso">Ansioso</option>
+                        <option value="enfadado">Enfadado</option>
+                        <option value="cansado">Cansado</option>
+                        <option value="motivado">Motivado</option>
+                        <option value="neutral">Neutral</option>
+                        <option value="estresado">Estresado</option>
+                        <option value="esperanzado">Esperanzado</option>
+                        <option value="frustrado">Frustrado</option>
+                        <option value="agradecido">Agradecido</option>
+                    </select>
+
+                    <div class="botones-horizontal">
+                        <button type="button" id="btn-ver-historial" class="btn btn-respuesta">Ver historial</button>
+                        <button type="submit" id="btn-ver-grafico" class="btn btn-respuesta">Ver gráfico</button>
+                    </div>
+
                     <div id="historial-container"></div>
+                    <div id="grafico-container"></div>
                     <div id="mensaje-estado" class="mt-2"></div>
                     <p class="frase-final d-block mx-auto">"Tus emociones son importantes. Gracias por compartirlas."</p>
             </div>

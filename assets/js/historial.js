@@ -1,15 +1,18 @@
 
 document.addEventListener("DOMContentLoaded", function () {
+
     const botonHistorial = document.getElementById("btn-ver-historial");
     if (!botonHistorial) return;
 
     botonHistorial.addEventListener("click", function () {
+        const emocionFiltrada = document.getElementById("filtro-emocion").value;
         console.log("Click en ver historial");
 
         //Creamos una variable que guarde los datos del historial
 
         const datos = {
-            accion: "ver_historial"
+            accion: "ver_historial",
+            filtro: emocionFiltrada
         };
         fetch("../controladores/moodController.php", {
             method: "POST",

@@ -8,15 +8,23 @@ $datos = json_decode($json, true);
 
 //Historial
 if (isset($datos['accion']) && $datos['accion'] === "ver_historial") {
+
     $usuario_id = $_SESSION['usuario_id'] ?? null;
 
     if (!$usuario_id) {
-        echo json_encode(["error" => "Faltan datos"]);
+        echo json_encode(["error" => "Usuario no autenticado"]);
         exit;
     }
 
+    $filtro = $datos['filtro'] ?? "";
 
-    $resultados = estadoAnimo::historial($usuario_id);
+    if ($filtro !== "") {
+        $resultados = estadoAnimo::historialPorEstado($usuario_id, $filtro);
+    } else {
+        $resultados = estadoAnimo::historial($usuario_id);
+    }
+
+
     echo json_encode($resultados);
     exit;
 }
