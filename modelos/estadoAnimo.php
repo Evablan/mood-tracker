@@ -34,7 +34,7 @@ class estadoAnimo
     public static function graficos($usuario_id)
     {
         global $pdo;
-        $sql = "SELECT estados_animo, COUNT(*) as total 
+        $sql = "SELECT estado_animo, COUNT(*) as total 
         FROM estados_animo
         WHERE usuario_id = ?
         GROUP BY estado_animo";

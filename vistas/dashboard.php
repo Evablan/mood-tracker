@@ -71,7 +71,9 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
                     </div>
 
                     <div id="historial-container"></div>
-                    <div id="grafico-container"></div>
+                    <div id="grafico-container">
+                        <canvas id="grafico-emociones" width="400" height="200"></canvas>
+                    </div>
                     <div id="mensaje-estado" class="mt-2"></div>
                     <p class="frase-final d-block mx-auto">"Tus emociones son importantes. Gracias por compartirlas."</p>
             </div>
@@ -81,6 +83,8 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
         <script src="../assets/js/grafico.js"></script>
 
         </form>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 
 
