@@ -50,12 +50,20 @@ document.addEventListener("DOMContentLoaded", function () {
         //Aquí va el resto de la lógica con AJAX
         const emocion = document.getElementById("select-emocion").value;
         const texto = document.getElementById("texto-diario").value;
+        //Validamos que este el campo cubierto
+        if (!emocion || texto.trim() === "") {
+            alert("Por favor, selecciona una emoción y escribe cómo te has sentido.");
+            return; // No seguimos si no hay datos válidos
+        }
+
 
         //Creamos una variable para meter dentro las variables emocion y texto y enviarlas juntas al servidor para que nos lo devuelva en formato JSON
         const datos = {
+            accion: "guardar",
             emocion: emocion,
             texto: texto
         };
+        console.log("Datos enviados", datos);
 
         fetch("../controladores/moodController.php", {
             method: "POST",
@@ -64,39 +72,38 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(datos)
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                const mensajeDiv = document.getElementById("mensaje-estado");
-                if (mensajeDiv && data.mensaje) {
-                    mensajeDiv.textContent = data.mensaje;
-                    mensajeDiv.style.color = "green";
-                    mensajeDiv.style.fontWeight = "bold";
 
-                    setTimeout(() => {
-                        mensajeDiv.textContent = "";
+            .then(response => response.text())
+            .then(text => {
+                console.log("Texto recibido:", text);
+                try {
+                    const data = JSON.parse(text);
+                    console.log("JSON parseado:", data);
 
-                        const select = document.getElementById("select-emocion");
-                        const textarea = document.getElementById("texto-diario");
+                    const mensajeDiv = document.getElementById("mensaje-estado");
+                    if (mensajeDiv && data.mensaje) {
+                        mensajeDiv.textContent = data.mensaje;
+                        mensajeDiv.style.color = "green";
+                        mensajeDiv.style.fontWeight = "bold";
 
-                        if (select) select.value = "";
-                        if (textarea) textarea.value = "";
+                        setTimeout(() => {
+                            mensajeDiv.textContent = "";
+                            const select = document.getElementById("select-emocion");
+                            const textarea = document.getElementById("texto-diario");
+                            if (select) select.value = "";
+                            if (textarea) textarea.value = "";
+                            if (select) select.style.backgroundColor = "#fff";
+                        }, 3000);
+                    }
 
-                        if (select) select.style.backgroundColor = "#fff";
-
-
-                    }, 3000);
-
+                } catch (e) {
+                    console.error("Error al parsear JSON:", e);
+                    console.warn("Texto recibido sin parsear:", text);
                 }
             })
 
-
-            .catch(error => {
-                console.error("Error al guardar", error);
-            });
-
     });
-});
+})
 
 
 

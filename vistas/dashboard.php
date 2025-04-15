@@ -78,6 +78,7 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
         </div>
         <script src="../assets/js/emociones.js"></script>
         <script src="../assets/js/historial.js"></script>
+        <script src="../assets/js/grafico.js"></script>
 
         </form>
 </body>
