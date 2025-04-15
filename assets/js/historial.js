@@ -35,24 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
                 //Crear lista de registros
                 const lista = document.createElement("ul");
                 data.forEach(item => {
-                    // Creamos la tarjeta
-                    const tarjeta = document.createElement("div");
-                    tarjeta.classList.add("tarjeta-emocion", `emocion-${item.estado_animo}`);
 
-                    // Encabezado (emoción y fecha)
-                    const encabezado = document.createElement("div");
-                    encabezado.classList.add("tarjeta-encabezado");
-                    encabezado.textContent = `${item.estado_animo.toUpperCase()} - ${item.fecha}`;
+                    if (item.estado_animo?.trim() && item.texto_diario?.trim()) {
+                        // Creamos la tarjeta
+                        const tarjeta = document.createElement("div");
+                        tarjeta.classList.add("tarjeta-emocion", `emocion-${item.estado_animo}`);
+                        console.log(item);
 
-                    // Cuerpo (texto diario)
-                    const cuerpo = document.createElement("div");
-                    cuerpo.classList.add("tarjeta-texto");
-                    cuerpo.textContent = item.texto_diario;
+                        // Encabezado (emoción y fecha)
+                        const encabezado = document.createElement("div");
+                        encabezado.classList.add("tarjeta-encabezado");
+                        encabezado.textContent = `${item.estado_animo.toUpperCase()} - ${item.fecha}`;
 
-                    // Añadir al DOM
-                    tarjeta.appendChild(encabezado);
-                    tarjeta.appendChild(cuerpo);
-                    contenedor.appendChild(tarjeta)
+                        // Cuerpo (texto diario)
+                        const cuerpo = document.createElement("div");
+                        cuerpo.classList.add("tarjeta-texto");
+                        cuerpo.textContent = item.texto_diario;
+
+                        // Añadir al DOM
+                        tarjeta.appendChild(encabezado);
+                        tarjeta.appendChild(cuerpo);
+                        contenedor.appendChild(tarjeta)
+                    } else {
+                        console.warn("Registro omitido por datos incompletos:", item);
+
+                    }
+
+
                 });
 
                 contenedor.appendChild(lista);
