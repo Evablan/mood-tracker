@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             body: JSON.stringify(datos)
         })
-
             .then(response => response.text())
             .then(text => {
+                console.log("Texto recibido:", text);
                 try {
                     const data = JSON.parse(text); //Convertimos el texto a JSON
                     console.log("Datos recibidos", data);
@@ -32,6 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     //Obtener todas las fechas únicas ordenadas
                     const fechasUnicas = [...new Set(data.map(item => item.fecha))].sort();
                     console.log("Fechas únicas:", fechasUnicas);
+
+                    const emocionesUnicas = [...new Set(data.map(item => item.estado_animo)).sort()];
+                    console.log("Emociones únicas", emocionesUnicas);
+
+                    //Crearemos un mapa base
+
 
 
 

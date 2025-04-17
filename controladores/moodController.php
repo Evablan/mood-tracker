@@ -54,19 +54,21 @@ if (isset($datos['accion']) && $datos['accion'] === "guardar") {
     estadoAnimo::guardar($usuario_id, $estado_animo, $texto_diario);
     echo json_encode(["mensaje" => "Guardado con éxito"]);
     exit;
+}
 
-    //Acción evolución
+//Acción evolución
+file_put_contents("log.txt", "Petición recibida\n", FILE_APPEND);
+file_put_contents("log.txt", "Datos crudos: " . file_get_contents("php://input") . "\n", FILE_APPEND);
 
-    if (isset($datos['accion']) && $datos['accion'] === "ver_evolucion") {
-        $usuario_id = $_SESSION['usuario_id'] ?? null;
-        if (!$usuario_id) {
-            echo json_encode(["error" => "Usuario no autenticado"]);
-            exit;
-        }
+if (isset($datos['accion']) && $datos['accion'] === "ver_evolucion") {
+    file_put_contents("log.txt", "Entrando en ver_evolucion\n", FILE_APPEND);
 
-
-        $resultados = estadoAnimo::evolucion($usuario_id);
-        echo json_encode($resultados);
+    $usuario_id = $_SESSION['usuario_id'] ?? null;
+    if (!$usuario_id) {
+        echo json_encode(["error" => "Usuario no autenticado"]);
         exit;
     }
+    $resultados = estadoAnimo::evolucion($usuario_id);
+    echo json_encode($resultados);
+    exit;
 }
