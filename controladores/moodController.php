@@ -54,4 +54,19 @@ if (isset($datos['accion']) && $datos['accion'] === "guardar") {
     estadoAnimo::guardar($usuario_id, $estado_animo, $texto_diario);
     echo json_encode(["mensaje" => "Guardado con éxito"]);
     exit;
+
+    //Acción evolución
+
+    if (isset($datos['accion']) && $datos['accion'] === "ver_evolucion") {
+        $usuario_id = $_SESSION['usuario_id'] ?? null;
+        if (!$usuario_id) {
+            echo json_encode(["error" => "Usuario no autenticado"]);
+            exit;
+        }
+
+
+        $resultados = estadoAnimo::evolucion($usuario_id);
+        echo json_encode($resultados);
+        exit;
+    }
 }

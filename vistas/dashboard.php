@@ -68,12 +68,18 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
                     <div class="botones-horizontal">
                         <button type="button" id="btn-ver-historial" class="btn btn-respuesta">Ver historial</button>
                         <button type="submit" id="btn-ver-grafico" class="btn btn-respuesta">Ver gráfico</button>
+                        <button type="submit" id="btn-ver-evolucion" class="btn btn-respuesta">Ver evolución</button>
                     </div>
 
                     <div id="historial-container"></div>
                     <div id="grafico-container">
                         <canvas id="grafico-emociones" width="400" height="200"></canvas>
                     </div>
+
+                    <div id="grafico-evolucion-container">
+                        <canvas id="grafico-evolucion-tiempo" width="400" height="200"></canvas>
+                    </div>
+
                     <div id="mensaje-estado" class="mt-2"></div>
                     <p class="frase-final d-block mx-auto">"Tus emociones son importantes. Gracias por compartirlas."</p>
             </div>
@@ -81,6 +87,7 @@ $usuario = isset($_SESSION['usuario']) ? htmlspecialchars($_SESSION['usuario']) 
         <script src="../assets/js/emociones.js"></script>
         <script src="../assets/js/historial.js"></script>
         <script src="../assets/js/grafico.js"></script>
+        <script src="../assets/js/graficoEvolucion.js"></script>
 
         </form>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
