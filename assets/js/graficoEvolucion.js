@@ -29,18 +29,81 @@ document.addEventListener("DOMContentLoaded", function () {
                         return;
                     }
 
-                    //Obtener todas las fechas únicas ordenadas
+                    //Obtener fechas únicas y emociones únicas ordenadas
                     const fechasUnicas = [...new Set(data.map(item => item.fecha))].sort();
-                    console.log("Fechas únicas:", fechasUnicas);
+                    const emocionesUnicas = [...new Set(data.map(item => item.estado_animo))].sort();
 
-                    const emocionesUnicas = [...new Set(data.map(item => item.estado_animo)).sort()];
+                    console.log("Fechas únicas:", fechasUnicas);
                     console.log("Emociones únicas", emocionesUnicas);
 
-                    //Crearemos un mapa base
+                    //Crear el mapa base vacío con ceros y Recorremos cada emoción y fecha
+                    const mapaBase = {};
+                    emocionesUnicas.forEach(emocion => {
+                        mapaBase[emocion] = {};
+                        fechasUnicas.forEach(fecha => {
+                            mapaBase[emocion][fecha] = 0;
+                        });
+                    });
+
+                    //Paso 3: Rellenar el mapa con los datos reales
+                    data.forEach(item => {
+                        const { estado_animo, fecha, total } = item;
+                        if (mapaBase[estado_animo] && mapaBase[estado_animo][fecha] !== undefined) {
+                            mapaBase[estado_animo][fecha] = total;
+                        }
+                    });
+
+                    //Crear los datasets para chart.js
+                    const datasets = emocionesUnicas.map((emocion, index) => {
+                        return {
+                            label: emocion,
+                            data: fechasUnicas.map(fecha => mapaBase[emocion][fecha]),
+                            fill: false,
+                            borderColor: `hsl(${index * 50}, 70%, 50%)`,
+                            tension: 0.3,
+
+
+                        };
+                        console.log("Datasets generados:", datasets);
+                        console.log("Fechas únicas:", fechasUnicas);
+                        console.log("Mapa base:", mapaBase);
 
 
 
+                    });
 
+                    // Si ya existe un gráfico anterior, lo destruimos
+                    if (window.graficoEvolucion) {
+                        window.graficoEvolucion.destroy();
+                    }
+
+                    // Crear el gráfico de líneas
+                    const ctx = document.getElementById("grafico-evolucion-tiempo").getContext("2d");
+                    window.graficoEvolucion = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: fechasUnicas,
+                            datasets: datasets
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Frecuencia'
+                                    }
+                                },
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Fecha'
+                                    }
+                                }
+                            }
+                        }
+                    });
 
 
                 } catch (e) {
@@ -53,6 +116,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             })
-
     })
 })
